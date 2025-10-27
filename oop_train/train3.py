@@ -25,7 +25,9 @@ class Curator(Human):
     def answer_question(self, question):
         famil_question = 'мне грустненько, что делать?'
         if question == famil_question:
-            return print('Держись, всё получится. Хочешь видео с котиками? ')
+            print('Держись, всё получится. Хочешь видео с котиками? ')
+            return
+        super().answer_question(question)
         # здесь нужно проверить, пришёл куратору знакомый вопрос или нет
         # если да - ответить на него
         # если нет - вызвать метод answer_question() у родительского класса
@@ -36,18 +38,21 @@ class Mentor(Human):
         famil_question = ['мне грустненько, что делать?',
                           'как устроиться работать питонистом?']
         if question == famil_question[0]:
-            return print('Отдохни и возвращайся с вопросами по теории.')
+            print('Отдохни и возвращайся с вопросами по теории.')
+            return
         if question == famil_question[1]:
-            return print('Сейчас расскажу.')
-        return print(super().answer_question(question))
+            print('Сейчас расскажу.')
+            return
+        super().answer_question(question)
 
 
 class CodeReviewer(Human):
     def answer_question(self, question):
         famil_question = 'что не так с моим проектом?'
         if question == famil_question:
-            return print('О, вопрос про проект, это я люблю.')
-        return print(super().answer_question(question))
+            print('О, вопрос про проект, это я люблю.')
+            return
+        super().answer_question(question)
 # объявите и реализуйте классы CodeReviewer и Mentor
 # следующий код менять не нужно, он работает, мы проверяли
 
